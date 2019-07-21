@@ -325,13 +325,14 @@ type Plugin interface {
 }
 
 type QueueSortPlugin interface {
-   Plugin
-   Less(*v1.Pod, *v1.Pod) bool
+	Plugin
+	Less(*PodInfo, *PodInfo) bool
 }
+
 
 type PreFilterPlugin interface {
    Plugin
-   PreFilter(PluginContext, *v1.Pod) error
+   PreFilter(PluginContext, *v1.Pod) *Status
 }
 
 // ...
